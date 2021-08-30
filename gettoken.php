@@ -6,13 +6,6 @@ $scope = 'ZohoBooks.contacts.Create,ZohoBooks.contacts.UPDATE,ZohoBooks.contacts
 $redirect_uri = '{YOUR_DOMAIN_NAME}'.basename(__FILE__);
 $state = 'billing';
 
-//https://accounts.zoho.com/oauth/v2/auth?
-//scope=ZohoBooks.invoices.CREATE,ZohoBooks.invoices.READ,ZohoBooks.invoices.UPDATE,ZohoBooks.invoices.DELETE&
-//client_id=1000.0SRSZSY37WMZ69405H3TMYI2239V
-//&state=testing
-//&response_type=code
-//&redirect_uri=http://www.zoho.com/books&access_type=offline
-
 if(isset($_POST['client_id'])){
     $_SESSION['data'] = $_POST;
     $client_id = $_POST['client_id'];
@@ -25,12 +18,6 @@ if(isset($_POST['client_id'])){
     exit;
 }elseif(isset($_GET['code']) && $_GET['state'] === $state){
 
-    // https://accounts.zoho.com/oauth/v2/token
-    //?code=1000.dd7e47321d48b8a7e312e3d6eb1a9bb8.b6c07ac766ec11da98bf6a261e24dca4
-    //&client_id=1000.0SRSZSY37WMZ69405H3TMYI2239V
-    //&client_secret=fb0196010f2b70df8db2a173ca2cf59388798abf
-    //&redirect_uri=http://www.zoho.com/books
-    //&grant_type=authorization_code
 
     $code = $_GET['code'];
     $client_id = $_SESSION['data']['client_id'];
